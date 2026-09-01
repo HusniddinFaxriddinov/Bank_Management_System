@@ -1,6 +1,8 @@
 package src.com.bank.model;
 import src.com.bank.exceptions.InsufficientAmountException;
 import src.com.bank.exceptions.InvalidAmountException;
+
+import java.util.Objects;
 import java.util.Random;
 import java.math.BigDecimal;
 
@@ -79,4 +81,27 @@ public class BankAccount {
     public void setCardNumber(String cardNumber){this.cardNumber = cardNumber;}
 
     public String getCardNumber(){return this.cardNumber;}
+
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "accountID=" + accountID +
+                ", ownerName='" + ownerName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return accountID == that.accountID && Objects.equals(ownerName, that.ownerName) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(cardNumber, that.cardNumber) && Objects.equals(balance, that.balance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountID, ownerName, phoneNumber, cardNumber, balance);
+    }
 }
