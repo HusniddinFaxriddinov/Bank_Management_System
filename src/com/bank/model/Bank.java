@@ -9,14 +9,20 @@ public class Bank {
     private List<BankAccount> accounts = new ArrayList<>();
 
     // Method for creating and adding account
-    public boolean createAccount(String phoneNumber, String username, BigDecimal balance) {
+    public boolean createAccount(String username, String phoneNumber, String cardNumber, BigDecimal balance) {
+        if(username == null){
+            System.out.println("Account name cannot be null!");
+            return false;
+        }
+
         if(phoneNumber == null)
         {
             System.out.println("Phone number cannot be null!");
             return false;
         }
-        if(username == null){
-            System.out.println("Account name cannot be null!");
+
+        if(cardNumber.length() < 16 || cardNumber == null){
+            System.out.println("Card number's length cannot be less than 16 digits!");
             return false;
         }
         if(balance.signum() == -1){
@@ -24,7 +30,9 @@ public class Bank {
             return false;
         }
 
-        BankAccount an_account = new BankAccount(phoneNumber, username, balance);
+
+
+        BankAccount an_account = new BankAccount(username, phoneNumber, cardNumber , balance);
         accounts.add(an_account);
         return true;
     }

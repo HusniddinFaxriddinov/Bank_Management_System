@@ -9,13 +9,15 @@ public class BankAccount {
     private int accountID = 0;
     private String ownerName;
     private String phoneNumber;
+    private String cardNumber;
     private BigDecimal balance;
     private Random rd = new Random();
 
 
-    public BankAccount(String phoneNumber, String ownerName, BigDecimal balance) {
-        this.phoneNumber = phoneNumber;
+    public BankAccount(String ownerName, String phoneNumber, String cardNumber, BigDecimal balance) {
         this.ownerName = ownerName;
+        this.phoneNumber = phoneNumber;
+        this.cardNumber = cardNumber;
         this.balance = balance;
         this.accountID = rd.nextInt(000, 999);
     }
@@ -71,5 +73,10 @@ public class BankAccount {
     public void setPhoneNumber(String phone){
         this.phoneNumber = phone;
     }
+
     public String getPhoneNumber(){return this.phoneNumber;}
+
+    public void setCardNumber(String cardNumber){this.cardNumber = cardNumber;}
+
+    public String getCardNumber(){return this.cardNumber;}
 }
