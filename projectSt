@@ -1,0 +1,20 @@
+src/
+│
+├── model/
+│ ├── Customer.java
+│ ├── BankAccount.java
+│ ├── Transaction.java
+│ ├── TransactionType.java
+│ └── Admin.java
+│
+├── service/
+│ ├── CustomerService.java
+│ ├── AccountService.java
+│ └── AuthenticationService.java
+│
+├── ui/
+│ ├── MainMenu.java
+│ ├── CustomerMenu.java
+│ └── AdminMenu.java
+│
+└── Main.java
